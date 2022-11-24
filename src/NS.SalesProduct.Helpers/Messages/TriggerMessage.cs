@@ -28,5 +28,11 @@
 
         public static string TriggerMessageExistingItem(string itemName, string itemValue)
          => $"O(a) {itemName} com o valor {itemValue} já existe em nossa base de dados";
+
+        public static string TriggerMessageIsLockedOut()
+            => $"Usuario temporariamete bloqueado devido a tentativas de login.";
+
+        public static string TriggerMessageloginFailure()
+            => $"Usuario ou senha incorreto.";
     }
 }

@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using Microsoft.Extensions.Configuration;
+using Npgsql;
 using NS.SalesProduct.Business.Interfaces;
 using NS.SalesProduct.Business.Models;
 using NS.SalesProduct.Infra.Data.DAOs;
@@ -8,6 +9,10 @@ namespace NS.SalesProduct.Infra.Data.Repositorys
 {
     public class ProductDao : Dao, IProductDao
     {
+        public ProductDao(IConfiguration configuration) : base(configuration)
+        {
+        }
+
         public async Task<IReadOnlyCollection<Product>> GetAllAsync()
         {
             var products = new List<Product>();

@@ -1,11 +1,15 @@
-﻿namespace NS.SalesProduct.Infra.Data.DAOs
+﻿using Microsoft.Extensions.Configuration;
+
+namespace NS.SalesProduct.Infra.Data.DAOs
 {
     public abstract class Dao
     {
         protected readonly string _connectionString;
-        protected Dao()
+        protected readonly IConfiguration _configuration;
+        protected Dao(IConfiguration configuration)
         {
-            _connectionString = "Host=localhost:5433;Username=postgres;Password=123456789;Database=NsSaleProducts";
+            _configuration = configuration; 
+            _connectionString = configuration.GetSection("ConnectionStrings").GetSection("DefaultConnection").Value;
         }
     }
 }

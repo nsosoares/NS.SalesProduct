@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using Microsoft.Extensions.Configuration;
+using Npgsql;
 using NS.SalesProduct.Business.Enuns;
 using NS.SalesProduct.Business.Interfaces;
 using NS.SalesProduct.Business.Models;
@@ -9,6 +10,10 @@ namespace NS.SalesProduct.Infra.Data.Repositorys
 {
     public class SaleDao : Dao, ISaleDao
     {
+        public SaleDao(IConfiguration configuration) : base(configuration)
+        {
+        }
+
         public async Task<IReadOnlyCollection<Sale>> GetAllAsync()
         {
             var sales = new List<Sale>();

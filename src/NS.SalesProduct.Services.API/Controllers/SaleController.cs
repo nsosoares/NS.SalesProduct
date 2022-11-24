@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NS.SalesProduct.Business.Interfaces;
 using NS.SalesProduct.Business.Models;
@@ -8,6 +9,7 @@ using NS.SalesProduct.Services.API.ViewModels;
 namespace NS.SalesProduct.Services.API.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     public class SaleController : BaseController
     {
         private readonly ISaleService _saleService;
